@@ -1,1 +1,1 @@
-web: gunicorn --bind 0.0.0.0:$PORT run:BusPay2000
+web: python run.py runserver 0.0.0.0:5000
