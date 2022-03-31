@@ -1,0 +1,29 @@
+{% extends "elements/layout.html" %}
+
+
+{% block content %}
+<div>
+    <img src="{{ url_for('static', filename='icons/big dude.png') }}" alt="">
+</div>
+
+{% if current_user.is_authenticated %}
+<h2>%user_name%</h2>
+<p align="center"><a href="#">Изменить профиль</a></p>
+    <table class="center">
+        <tr>
+            <th>Мои баллы:</th>
+            <td>0</td>
+        </tr>
+        <tr>
+            <th>Колличество поездок:</th>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td><a href="#">Изменить пароль</a></td>
+        </tr>
+    </table>
+{% else %}
+<h3>Войдите в свой аккаунт или зарегистрируйтесь!</h3>
+{% endif %}
+
+{% endblock content %}

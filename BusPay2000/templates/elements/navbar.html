@@ -1,0 +1,29 @@
+
+<nav class="sidebar">
+    <div class="text logo-txt"> BusPay2000 </div>
+    <ul class="main_side">
+        <!-- <li class="active"><a href="#">Dashboard</a></li> -->
+        <!-- <li> <a href="#" id="1">Pages <span class="fas fa-caret-down"></span> </a>
+            <ul class="item-show-1">
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">Our Team</a></li>
+            </ul>
+        </li> -->
+        <!-- <li> <a href="#" id="2">Services <span class="fas fa-caret-down"></span> </a>
+            <ul class="item-show-2">
+                <li><a href="#">App Design</a></li>
+                <li><a href="#">Web Design</a></li>
+            </ul>
+        </li> -->
+        <li><a href="{{ url_for('main_page') }}">Главная</a></li>
+        {% if current_user.is_authenticated %}
+        <li><a href="{{ url_for('account_page') }}">Личный кабинет</a></li>
+        <li><a href="{{ url_for('schedule_page') }}">Расписание</a></li>
+        <li><a href="{{ url_for('buy_page') }}">Купить билет</a></li>
+        <li><a href="{{ url_for('logout_page') }}">Выйти</a></li>
+        {% else %}
+        <li><a href="{{ url_for('login_page') }}">Войти</a></li>
+        <li><a href="{{ url_for('reg_page') }}">Регистрация</a></li>
+        {% endif %}
+    </ul>
+</nav>

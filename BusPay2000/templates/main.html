@@ -1,0 +1,12 @@
+{% extends "elements/layout.html" %}
+
+{% block content %}
+
+{% if current_user.is_authenticated %}
+<h2>Мой билет:</h2>
+<img class="qr-code" src="{{ url_for('static', filename='img.png') }}" alt="">
+{% else %}
+<h3>Войдите в свой аккаунт или зарегистрируйтесь!</h3>
+{% endif %}
+
+{% endblock content %}

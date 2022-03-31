@@ -1,0 +1,12 @@
+{% extends "elements/layout.html" %}
+
+{% block content %}
+
+{% if current_user.is_authenticated %}
+<h2>retbnm</h2>
+
+{% else %}
+<h3>Войдите в свой аккаунт или зарегистрируйтесь!</h3>
+{% endif %}
+
+{% endblock content %}
