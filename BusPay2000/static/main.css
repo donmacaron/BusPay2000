@@ -224,5 +224,8 @@ th, td {
 }
 
 .schedule {
+    width: 40%;
     text-align: left;
+    margin-left: auto;
+    margin-right: auto;
 }
