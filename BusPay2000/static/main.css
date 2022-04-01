@@ -162,9 +162,11 @@ nav ul li a span.rotate {
     top: 50%;
     left: 50%; 
     transform: translate(-50%, -50%); */
-    width: auto;
+    width: 50%;
     padding-top: 5%;
     /* display: flex; */
+    margin-left: auto;
+    margin-right: auto;
     justify-content: center;
     color: #202020;
     z-index: -1;
@@ -224,8 +226,51 @@ th, td {
 }
 
 .schedule {
-    width: 40%;
     text-align: left;
     margin-left: auto;
     margin-right: auto;
+}
+
+.reg-login-btn {
+    color: #313333;
+    border-color: #313333;
+    width: 50%;
+}
+
+.reg-login-btn:hover {
+    background-color: #d4d4d4;
+    border-color: #313333;
+}
+
+.reg-login-btn:active {
+    background-color: #d4d4d4;
+}
+
+.btn-outline-info:active:focus  {
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(136, 136, 136, 0.5);
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.alert {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.txt-x {
+    margin-bottom: 50px;
+}
+
+.btn-pay {
+    width: 75%;
+    height: 96px;
+    border-radius: 30px;
+}
+
+.form-text {
+    font-size: medium;
 }

@@ -73,3 +73,12 @@ def logout_page():
     flash('Вы успешно вышли из учётной записи', 'info')
     logout_user()
     return redirect(url_for('main_page'))
+
+
+@app.route('/flush', methods=['GET'])
+def reset_db():
+    flash('Database has been resetted', 'info')
+    logout_user()
+    db.drop_all()
+    db.create_all()
+    return redirect(url_for('main_page'))

@@ -3,7 +3,9 @@
 {% block content %}
 
 {% if current_user.is_authenticated %}
-<h2>retbnm</h2>
+<h2 class="txt-x">Билет на городской маршрут</h2>
+<p class="txt-x"><strong>25 рублей</strong></p>
+<button type="button" class="btn btn-secondary btn-pay">Оплатить картой</button>
 
 {% else %}
 <h3>Войдите в свой аккаунт или зарегистрируйтесь!</h3>
