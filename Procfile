@@ -1,1 +1,2 @@
-web: bundle exec thin start -p $PORT
+web: python run.py runserver 0.0.0.0:$PORT
+
