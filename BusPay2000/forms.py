@@ -14,8 +14,8 @@ class RegistrationForm(FlaskForm):
     usr_type = BooleanField('Кондуктор?')
     submit = SubmitField('Регистрация')
 
-    def validate_username(self, username):
-        user = User.query.filter_by(username=username.data).first()
+    def validate_username(self, phone):
+        user = User.query.filter_by(phone=phone.data).first()
         if user:
             raise ValidationError('Имя пользователя уже занято')
 
