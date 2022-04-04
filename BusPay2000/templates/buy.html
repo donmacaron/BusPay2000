@@ -3,9 +3,27 @@
 {% block content %}
 
 {% if current_user.is_authenticated %}
-<h2 class="txt-x">Билет на городской маршрут</h2>
-<p class="txt-x"><strong>25 рублей</strong></p>
-<button type="button" class="btn btn-secondary btn-pay">Оплатить картой</button>
+<!-- <h2 class="txt-x">Билет на городской маршрут</h2>
+<p class="txt-x"><strong>25 рублей</strong></p> -->
+
+
+
+<div class="content-section">
+    <form class="form-text" method="post" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Билет на городской маршрут <strong>25 рублей</strong></legend>
+            
+        <div class="form-group">
+            {{ form.submit(class="btn btn-secondary btn-pay form-roundness")}}
+        </div>
+    </form>
+</div>
+
+
+
+
+<!-- <button type="button" class="btn btn-secondary btn-pay">Оплатить картой</button> -->
 
 {% else %}
 <h3>Войдите в свой аккаунт или зарегистрируйтесь!</h3>

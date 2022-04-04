@@ -186,6 +186,7 @@ nav ul li a span.rotate {
 @media screen and (max-width: 600px) {
     .content {
         width: 70%;
+        /* margin-left: 69px; */
 }
 }
 
@@ -194,8 +195,14 @@ nav ul li a span.rotate {
     font-style: italic;
 }
 
-.logo-x-txt {
+.logo-x-img {
     margin-bottom: 2em;
+}
+
+@media screen and (max-width: 600px) {
+    .logo-x-img {
+        width: 70%;
+}
 }
 
 .header {
@@ -206,6 +213,13 @@ nav ul li a span.rotate {
     justify-content: center;
     text-align: center;
 }
+
+@media screen and (max-width: 600px) {
+    .header{
+        margin-left: 50px;
+}
+}
+
 
 .qr-code {
   width: 100%;

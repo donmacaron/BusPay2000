@@ -23,17 +23,17 @@ class User(db.Model, UserMixin):
     is_conductor = db.Column(db.Boolean, default=False)
 
     tickets = db.relationship('Ticket', secondary=users_tickets, lazy='subquery',
-                           backref=db.backref('users', lazy=True))
+                           backref="tickets")
 
     def __repr__(self):
-        return f"User '{self.username}', Phone number '{self.phone}'"
+        return f"User '{self.phone}', tickets '{self.tickets}'"
    
 
 
 class Ticket(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime, nullable=False, default=datetime.now)
-    used = db.Column(db.Boolean, default=False)
+    uses = db.Column(db.Integer, default=1)
 
     def __repr__(self):
         return f"Date '{self.date}', Is used? '{self.used}'"

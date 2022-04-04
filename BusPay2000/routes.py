@@ -2,8 +2,8 @@
 from flask import render_template, url_for, redirect, flash, request
 from flask_login import login_user, current_user, logout_user, login_required
 from BusPay2000 import app, bcrypt, db
-from BusPay2000.models import User
-from BusPay2000.forms import RegistrationForm, LoginForm
+from BusPay2000.models import User, Ticket
+from BusPay2000.forms import RegistrationForm, LoginForm, BuyForm
 
 
 
@@ -28,7 +28,16 @@ def schedule_page():
 @app.route('/buy', methods=['GET', 'POST'])
 def buy_page():
     title = 'BusPay2000 - Купить'
-    return render_template('buy.html', title=title)
+    form = BuyForm()
+    print(current_user)
+    if form.validate_on_submit():
+        ticket =  Ticket()
+        db.session.add(ticket)
+        current_user.tickets.append(ticket)
+        db.session.commit()
+        flash('Билет куплен', 'success')
+        return redirect(url_for('main_page'))
+    return render_template('buy.html', title=title, messages=True, form=form)
 
 @app.route('/travelcard', methods=['GET'])
 def travelcard_page():
@@ -51,6 +60,8 @@ def contacts_page():
 @app.route('/registration', methods=['GET', 'POST'])
 def reg_page():
     title = 'BusPay2000 - Регистрация'
+    if current_user.is_authenticated:
+        return redirect(url_for('main_page'))
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(

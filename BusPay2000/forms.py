@@ -25,3 +25,7 @@ class LoginForm(FlaskForm):
     password = PasswordField('Пароль', validators=[DataRequired()])
     remember = BooleanField('Оставаться в системе')
     submit = SubmitField('Вход')
+
+
+class BuyForm(FlaskForm):
+    submit = SubmitField('Купить билет')
