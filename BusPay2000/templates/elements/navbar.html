@@ -1,6 +1,5 @@
-
 <nav class="sidebar">
-    <div class="text logo-txt"> BusPay2000 </div>
+    <!-- <div class="text logo-txt"> BusPay2000 </div> -->
     <ul class="main_side">
         <!-- <li class="active"><a href="#">Dashboard</a></li> -->
         <!-- <li> <a href="#" id="1">Pages <span class="fas fa-caret-down"></span> </a>
@@ -15,15 +14,107 @@
                 <li><a href="#">Web Design</a></li>
             </ul>
         </li> -->
-        <li><a href="{{ url_for('main_page') }}">Главная</a></li>
+        <li>
+            <div class="menu-text">
+                <a href="{{ url_for('main_page') }}">Главная</a>
+            </div>
+            <div class="menu-icon">
+                <!-- <img src="{{ url_for('static', filename='icons/dude.png') }}" alt=""> -->
+            </div>
+        </li>
         {% if current_user.is_authenticated %}
-        <li><a href="{{ url_for('account_page') }}">Личный кабинет</a></li>
-        <li><a href="{{ url_for('schedule_page') }}">Расписание</a></li>
-        <li><a href="{{ url_for('buy_page') }}">Купить билет</a></li>
-        <li><a href="{{ url_for('logout_page') }}">Выйти</a></li>
+        <li>
+            <a href="{{ url_for('account_page') }}">
+                <div class="menu-text">
+                    Личный кабинет
+                </div>
+                <div class="menu-icon">
+                    <img src="{{ url_for('static', filename='icons/dude.png') }}" alt="">
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('schedule_page') }}">
+                <div class="menu-text">
+                    Расписание
+                </div>
+                <div class="menu-icon">
+                    <img src="{{ url_for('static', filename='icons/calendar.png') }}" alt="">
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('buy_page') }}">
+                <div class="menu-text">
+                    Купить билет
+                </div>
+                <div class="menu-icon">
+                    <img src="{{ url_for('static', filename='icons/bus_card.png') }}" alt="">
+                </div>
+            </a>
+        </li>
+        </div>
+
+        <li>
+            <a href="{{ url_for('travelcard_page') }}">
+                <div class="menu-text">
+                    Купить проездной
+                </div>
+                <div class="menu-icon">
+                    <img src="{{ url_for('static', filename='icons/card.png') }}" alt="">
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('history_page') }}">
+            <div class="menu-text">
+                История поездок
+            </div>
+            <div class="menu-icon">
+                <img src="{{ url_for('static', filename='icons/history.png') }}" alt="">
+            </div>
+            </a>
+        </li>
+        <li><a href="{{ url_for('contacts_page') }}">
+                <div class="menu-text">
+                    Контакты
+                </div>
+                <div class="menu-icon">
+                    <img src="{{ url_for('static', filename='icons/wallet.png') }}" alt="">
+                </div>
+            </a>
+        </li>
+        <li class="logout-bottom">
+            <a href="{{ url_for('logout_page') }}">
+                <div class="menu-text">
+                    Выйти
+                </div>
+                <div class="menu-icon">
+                    <img src="{{ url_for('static', filename='icons/exit.png') }}" alt="">
+                </div>
+            </a>
+        </li>
         {% else %}
-        <li><a href="{{ url_for('login_page') }}">Войти</a></li>
-        <li><a href="{{ url_for('reg_page') }}">Регистрация</a></li>
+        <li>
+            <a href="{{ url_for('login_page') }}">
+                <div class="menu-text">
+                    Войти
+                </div>
+                <div class="menu-icon">
+                    <img src="{{ url_for('static', filename='icons/user-login.png') }}" alt="">
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('reg_page') }}">
+                <div class="menu-text">
+                    Регистрация
+                </div>
+                <div class="menu-icon">
+                    <img src="{{ url_for('static', filename='icons/new-user.png') }}" alt="">
+                </div>
+            </a>
+        </li>
         {% endif %}
     </ul>
 </nav>

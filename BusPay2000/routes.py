@@ -25,10 +25,27 @@ def schedule_page():
     return render_template('schedule.html', title=title)
 
 
-@app.route('/buy', methods=['GET'])
+@app.route('/buy', methods=['GET', 'POST'])
 def buy_page():
     title = 'BusPay2000 - Купить'
     return render_template('buy.html', title=title)
+
+@app.route('/travelcard', methods=['GET'])
+def travelcard_page():
+    title = 'BusPay2000 - Купить проездной'
+    return render_template('travelcard.html', title=title)
+
+
+@app.route('/history', methods=['GET'])
+def history_page():
+    title = 'BusPay2000 - История поездок'
+    return render_template('history.html', title=title)
+
+
+@app.route('/contacts', methods=['GET'])
+def contacts_page():
+    title = 'BusPay2000 - Контакты'
+    return render_template('contacts.html', title=title)
 
 
 @app.route('/registration', methods=['GET', 'POST'])

@@ -8,7 +8,7 @@
         <fieldset class="form-group">
             <legend class="border-bottom mb-4">Регистрация</legend>
             <div class="form-group">
-                {{ form.phone.label(class="form-control-label") }}
+                <!-- {{ form.phone.label(class="form-control-label") }} -->
 
                 {% if form.phone.errors %}
                 {{ form.phone(class="form-control form-control-lg is-invalid") }}
@@ -18,11 +18,11 @@
                     {% endfor %}
                 </div>
                 {% else %}
-                {{ form.phone(class="form-control form-control-lg", maxlength="11", placeholder="79999999999", oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');") }}
+                {{ form.phone(class="form-control form-control-lg form-roundness", maxlength="11", placeholder="+7999-999-99-99", oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');") }}
                 {% endif %}
             </div>
             <div class="form-group">
-                {{ form.password.label(class="form-control-label") }}
+                <!-- {{ form.password.label(class="form-control-label") }} -->
                 {% if form.password.errors %}
                 {{ form.password(class="form-control form-control-lg is-invalid") }}
                 <div class="invalid-feedback">
@@ -31,11 +31,11 @@
                     {% endfor %}
                 </div>
                 {% else %}
-                {{ form.password(class="form-control form-control-lg") }}
+                {{ form.password(class="form-control form-control-lg form-roundness", placeholder="Введите пароль") }}
                 {% endif %}
             </div>
             <div class="form-group">
-                {{ form.confirm_password.label(class="form-control-label") }}
+                <!-- {{ form.confirm_password.label(class="form-control-label") }} -->
                 {% if form.confirm_password.errors %}
                 {{ form.confirm_password(class="form-control form-control-lg is-invalid") }}
                 <div class="invalid-feedback">
@@ -44,7 +44,7 @@
                     {% endfor %}
                 </div>
                 {% else %}
-                {{ form.confirm_password(class="form-control form-control-lg") }}
+                {{ form.confirm_password(class="form-control form-control-lg form-roundness", placeholder="Подтвердите пароль") }}
                 {% endif %}
             </div>
             <!-- <div class="form-group">
@@ -53,7 +53,7 @@
             </div> -->
         </fieldset>
         <div class="form-group">
-            {{ form.submit(class="btn btn-outline-info reg-login-btn")}}
+            {{ form.submit(class="btn btn-outline-info reg-login-btn form-roundness")}}
         </div>
     </form>
 </div>
