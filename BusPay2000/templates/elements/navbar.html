@@ -18,8 +18,10 @@
             <div class="menu-text">
                 <a href="{{ url_for('main_page') }}">Главная</a>
             </div>
-            <div class="menu-icon">
+            <div class="menu-icon btn-x btn">
                 <!-- <img src="{{ url_for('static', filename='icons/dude.png') }}" alt=""> -->
+                <!-- <div class="btn-x btn"> <span class="fas fa-bars"></span> </div> -->
+                <span class="fas fa-bars"></span>
             </div>
         </li>
         {% if current_user.is_authenticated %}

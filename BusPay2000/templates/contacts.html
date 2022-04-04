@@ -1,7 +1,18 @@
 {% extends "elements/layout.html" %}
-<p>Адрес: 433034, РФ, Ульяновская обл., г. Инза, ул. Шоссейная, д. 92</p>
-<p>телефон: 8(84241) 2-49-12, 2-49-21</p>
-<p>факс: 8(84241) 2-49-51, 2-49-01</p>
-<p>e-mail: atp-inza@yandex.ru</p>
+
+{% block content %}
+
+{% if current_user.is_authenticated %}
+<p align="center">Адрес: 433034, РФ, Ульяновская обл., г. Инза, ул. Шоссейная, д. 92</p>
+<p align="center">телефон: 8(84241) 2-49-12, 2-49-21</p>
+<p align="center">факс: 8(84241) 2-49-51, 2-49-01</p>
+<p align="center">e-mail: atp-inza@yandex.ru</p>
+
+{% else %}
+<h3>Войдите в свой аккаунт или зарегистрируйтесь!</h3>
+{% endif %}
+
+{% endblock content %}
+
 
 
