@@ -29,3 +29,9 @@ class LoginForm(FlaskForm):
 
 class BuyForm(FlaskForm):
     submit = SubmitField('Купить билет')
+
+class TravelcardForm(FlaskForm):
+    travelcard_uses = [5, 10, 15]
+    submit_1 = SubmitField(f'Купить проездной на {travelcard_uses[0]} поездок')
+    submit_2 = SubmitField(f'Купить проездной на {travelcard_uses[1]} поездок')
+    submit_3 = SubmitField(f'Купить проездной на {travelcard_uses[2]} поездок')

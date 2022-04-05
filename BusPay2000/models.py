@@ -36,4 +36,4 @@ class Ticket(db.Model):
     uses = db.Column(db.Integer, default=1)
 
     def __repr__(self):
-        return f"Date '{self.date}', Is used? '{self.used}'"
+        return f"Date '{self.date}', Uses left '{self.uses}'"

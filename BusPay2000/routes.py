@@ -3,7 +3,7 @@ from flask import render_template, url_for, redirect, flash, request
 from flask_login import login_user, current_user, logout_user, login_required
 from BusPay2000 import app, bcrypt, db
 from BusPay2000.models import User, Ticket
-from BusPay2000.forms import RegistrationForm, LoginForm, BuyForm
+from BusPay2000.forms import RegistrationForm, LoginForm, BuyForm, TravelcardForm
 
 
 
@@ -29,7 +29,6 @@ def schedule_page():
 def buy_page():
     title = 'BusPay2000 - Купить'
     form = BuyForm()
-    print(current_user)
     if form.validate_on_submit():
         ticket =  Ticket()
         db.session.add(ticket)
@@ -39,16 +38,34 @@ def buy_page():
         return redirect(url_for('main_page'))
     return render_template('buy.html', title=title, messages=True, form=form)
 
-@app.route('/travelcard', methods=['GET'])
+@app.route('/travelcard', methods=['GET', 'POST'])
 def travelcard_page():
     title = 'BusPay2000 - Купить проездной'
-    return render_template('travelcard.html', title=title)
+    
+    form = TravelcardForm()
+    print(f"Купить проездной на {form.travelcard_uses[2]} поездок")
+    if form.validate_on_submit():
+        if f"Купить проездной на {form.travelcard_uses[0]} поездок" in str(form.submit_1):
+            ticket = Ticket(uses=form.travelcard_uses[0])
+        if f"Купить проездной на {form.travelcard_uses[1]} поездок" in str(form.submit_2):
+            ticket = Ticket(uses=form.travelcard_uses[1])
+        if f"Купить проездной на {form.travelcard_uses[2]} поездок" in str(form.submit_3):
+            print('ENORMOUS DICK')
+            ticket = Ticket(uses=form.travelcard_uses[2])
+        db.session.add(ticket)
+        current_user.tickets.append(ticket)
+        db.session.commit()
+        flash(f'Куплен проездной на {ticket.uses} поездок', 'success')
+        return redirect(url_for('main_page'))
+    return render_template('travelcard.html', title=title, form=form, travelcard_uses=form.travelcard_uses)
 
 
 @app.route('/history', methods=['GET'])
 def history_page():
     title = 'BusPay2000 - История поездок'
-    return render_template('history.html', title=title)
+    tickets = current_user.tickets
+    print(tickets)
+    return render_template('history.html', title=title, tickets=tickets)
 
 
 @app.route('/contacts', methods=['GET'])

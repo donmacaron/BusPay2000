@@ -3,7 +3,35 @@
 {% block content %}
 
 {% if current_user.is_authenticated %}
-<h1>Travelcard</h1>
+<h1>Проездной</h1>
+
+<div class="content-section">
+    <form class="form-text" method="post" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group" style="margin-bottom: 20px;">
+            <legend class="border-bottom mb-4">Проездной на {{ travelcard_uses[0] }} поездок</legend>
+            <div class="form-group">
+                {{ form.submit_1(class="btn btn-secondary btn-pay form-roundness")}}
+            </div>
+        </fieldset>
+        
+        <fieldset class="form-group" style="margin-bottom: 20px;">
+            <legend class="border-bottom mb-4">Проездной на {{ travelcard_uses[1] }} поездок</legend>
+            <div class="form-group">
+                {{ form.submit_2(class="btn btn-secondary btn-pay form-roundness")}}
+            </div>
+        </fieldset>
+
+        <fieldset class="form-group" style="margin-bottom: 20px;">
+            <legend class="border-bottom mb-4">Проездной на {{ travelcard_uses[2] }} поездок</legend>
+            <div class="form-group">
+                {{ form.submit_3(class="btn btn-secondary btn-pay form-roundness")}}
+            </div>
+        </fieldset>
+
+
+    </form>
+</div>
 
 {% else %}
 <h3>Войдите в свой аккаунт или зарегистрируйтесь!</h3>

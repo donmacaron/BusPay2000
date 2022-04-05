@@ -3,9 +3,17 @@
 {% block content %}
 
 {% if current_user.is_authenticated %}
-<h1>История поездок</h1>
+    <h1>История Покупок</h1>
 
-
+    <ul class="list-group list-group-flush">
+    {% for ticket in tickets %}
+        <li class="list-group-item"> 
+            <div class="alert alert-{{ 'success' if ticket.uses > 0 else 'danger'}}" role="alert">
+                <strong>Дата:</strong> {{ ticket.date.strftime('%d/%m/%Y-%H:%M')}} <strong>Осталось поездок: </strong> {{ticket.uses}}
+            </div>
+        </li>    
+    {% endfor %}
+    </ul>
 
 {% else %}
 <h3>Войдите в свой аккаунт или зарегистрируйтесь!</h3>
