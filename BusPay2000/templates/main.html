@@ -9,7 +9,7 @@
     <h1>Мои Билеты</h1>
     
     <ul class="list-group list-group-flush">
-        {% for ticket in tickets %}
+        {% for ticket in tickets|sort(attribute='uses',reverse=true) %}
         <li class="list-group-item history-list">  
             <p>
                 <a class="btn " data-bs-toggle="collapse" href="#qr-{{ ticket.id }}" role="button" aria-expanded="false"
