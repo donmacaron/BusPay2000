@@ -1,4 +1,5 @@
 # from os.path import join, dirname, realpath
+from flask_qrcode import QRcode
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
@@ -25,6 +26,8 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'front_page'
 login_manager.login_message_category = 'info'
 login_manager.login_message = u"Пожалуйста, войдите в учётную запись"
+
+qrcode = QRcode(app)
 
 
 from BusPay2000 import routes

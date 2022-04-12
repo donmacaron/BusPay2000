@@ -7,8 +7,8 @@
 
     <ul class="list-group list-group-flush">
     {% for ticket in tickets %}
-        <li class="list-group-item"> 
-            <div class="alert alert-{{ 'success' if ticket.uses > 0 else 'danger'}}" role="alert">
+        <li class="list-group-item history-list"> 
+            <div class="alert alert-{{ 'success' if ticket.uses > 0 else 'danger'}} history-list" role="alert">
                 <strong>Дата:</strong> {{ ticket.date.strftime('%d/%m/%Y-%H:%M')}} <strong>Осталось поездок: </strong> {{ticket.uses}}
             </div>
         </li>    

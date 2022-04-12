@@ -7,7 +7,7 @@
 </div>
 
 {% if current_user.is_authenticated %}
-<h2>%user_name%</h2>
+<h2>{{ current_user.phone }}</h2>
 <!-- <p align="center"><a href="#">Изменить профиль</a></p> -->
     <table class="center">
         <tr>
@@ -16,7 +16,7 @@
         </tr>
         <tr>
             <th>Колличество поездок:</th>
-            <td>0</td>
+            <td>{{ current_user.travels }}</td>
         </tr>
         <tr>
             <!-- <td><a href="#">Изменить пароль</a></td> -->

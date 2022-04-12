@@ -25,16 +25,18 @@
             </div>
         </li>
         {% if current_user.is_authenticated %}
-        <li>
-            <a href="{{ url_for('account_page') }}">
-                <div class="menu-text">
-                    Личный кабинет
-                </div>
-                <div class="menu-icon">
-                    <img src="{{ url_for('static', filename='icons/dude.png') }}" alt="">
-                </div>
-            </a>
-        </li>
+            {% if current_user.is_conductor == False %}
+            <li>
+                <a href="{{ url_for('account_page') }}">
+                    <div class="menu-text">
+                        Личный кабинет
+                    </div>
+                    <div class="menu-icon">
+                        <img src="{{ url_for('static', filename='icons/dude.png') }}" alt="">
+                    </div>
+                </a>
+            </li>
+            {% endif %}
         <li>
             <a href="{{ url_for('schedule_page') }}">
                 <div class="menu-text">
@@ -45,38 +47,31 @@
                 </div>
             </a>
         </li>
-        <li>
-            <a href="{{ url_for('buy_page') }}">
-                <div class="menu-text">
-                    Купить билет
-                </div>
-                <div class="menu-icon">
-                    <img src="{{ url_for('static', filename='icons/bus_card.png') }}" alt="">
-                </div>
-            </a>
-        </li>
-        </div>
+            {% if current_user.is_conductor == False %}
+            <li>
+                <a href="{{ url_for('buy_page') }}">
+                    <div class="menu-text">
+                        Купить билет
+                    </div>
+                    <div class="menu-icon">
+                        <img src="{{ url_for('static', filename='icons/bus_card.png') }}" alt="">
+                    </div>
+                </a>
+            </li>
+            </div>
 
-        <li>
-            <a href="{{ url_for('travelcard_page') }}">
-                <div class="menu-text">
-                    Купить проездной
-                </div>
-                <div class="menu-icon">
-                    <img src="{{ url_for('static', filename='icons/card.png') }}" alt="">
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="{{ url_for('history_page') }}">
-            <div class="menu-text">
-                История покупок
-            </div>
-            <div class="menu-icon">
-                <img src="{{ url_for('static', filename='icons/history.png') }}" alt="">
-            </div>
-            </a>
-        </li>
+            <li>
+                <a href="{{ url_for('travelcard_page') }}">
+                    <div class="menu-text">
+                        Купить проездной
+                    </div>
+                    <div class="menu-icon">
+                        <img src="{{ url_for('static', filename='icons/card.png') }}" alt="">
+                    </div>
+                </a>
+            </li>
+
+            {% endif %}
         <li><a href="{{ url_for('contacts_page') }}">
                 <div class="menu-text">
                     Контакты

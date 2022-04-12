@@ -3,8 +3,36 @@
 {% block content %}
 
 {% if current_user.is_authenticated %}
-<h2>Мой билет:</h2>
-<img class="qr-code" src="{{ url_for('static', filename='img.png') }}" alt="">
+    {% if current_user.is_conductor == True %}
+        Теперь можно сканировать билеты
+    {% else %}
+    <h1>Мои Билеты</h1>
+    
+    <ul class="list-group list-group-flush">
+        {% for ticket in tickets %}
+        <li class="list-group-item history-list">  
+            <p>
+                <a class="btn " data-bs-toggle="collapse" href="#qr-{{ ticket.id }}" role="button" aria-expanded="false"
+                    aria-controls="qr-{{ ticket.id }}">
+                    <div class="alert alert-{{ 'success' if ticket.uses > 0 else 'danger'}} history-list" role="alert">
+                        <strong>Дата:</strong> {{ ticket.date.strftime('%d/%m/%Y-%H:%M')}} <strong>Осталось поездок: </strong>
+                        {{ticket.uses}}
+                    </div>
+                </a>
+            </p>        
+            <div class="collapse" id="qr-{{ ticket.id }}">
+                <div class="card card-body">
+                    
+                    <p>
+                        <!-- <a href="{{ url_for('approve', ticket=ticket.id) }}">link for </a> -->
+                        <img src="{{ qrcode(url_for('approve', ticket=ticket.id, _external=True)) }}">
+                    </p>
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
 {% else %}
 <h3>Войдите в свой аккаунт или зарегистрируйтесь!</h3>
 {% endif %}

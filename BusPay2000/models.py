@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 from flask_login import UserMixin
 from BusPay2000 import db
 from BusPay2000 import login_manager
@@ -21,7 +21,7 @@ class User(db.Model, UserMixin):
     phone = db.Column(db.String(10), unique=True, nullable=False)
     password = db.Column(db.String(60), nullable=False)
     is_conductor = db.Column(db.Boolean, default=False)
-
+    travels = db.Column(db.Integer, default=0)
     tickets = db.relationship('Ticket', secondary=users_tickets, lazy='subquery',
                            backref="tickets")
 
@@ -32,7 +32,8 @@ class User(db.Model, UserMixin):
 
 class Ticket(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    date = db.Column(db.DateTime, nullable=False, default=datetime.now)
+    date = db.Column(db.DateTime, nullable=False,
+                     default=datetime.utcnow()+timedelta(hours=3))
     uses = db.Column(db.Integer, default=1)
 
     def __repr__(self):

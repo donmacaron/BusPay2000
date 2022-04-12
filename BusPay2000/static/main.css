@@ -185,8 +185,8 @@ nav ul li a span.rotate {
 
 @media screen and (max-width: 600px) {
     .content {
-        width: 70%;
-        /* margin-left: 69px; */
+        width: 80%;
+        margin-left: 71px;
 }
 }
 
@@ -216,7 +216,8 @@ nav ul li a span.rotate {
 
 @media screen and (max-width: 600px) {
     .header{
-        margin-left: 50px;
+        margin-left: 65px;
+        width: 80%;
 }
 }
 
@@ -349,4 +350,9 @@ th, td {
     text-align:center;
     padding:5px;
     background:#F7F5D2;
+}
+
+.history-list {
+    position:inherit;
+    width: auto;
 }
