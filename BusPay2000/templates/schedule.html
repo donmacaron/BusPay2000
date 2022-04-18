@@ -1,11 +1,39 @@
 {% extends "elements/layout.html" %}
 
-{% block content %}
 
+{% block content %}
+{% set active_page = 'schedule' %}
 <h2>Расписание</h2>
 
 
-<table class="schedule">
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="city2-tab" data-bs-toggle="tab" data-bs-target="#city2" type="button"
+            role="tab" aria-controls="city2" aria-selected="true">Город 2</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="city3-tab" data-bs-toggle="tab" data-bs-target="#city3" type="button"
+            role="tab" aria-controls="city3" aria-selected="false">Город 3</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="city4-tab" data-bs-toggle="tab" data-bs-target="#city4" type="button"
+            role="tab" aria-controls="city4" aria-selected="false">Город 4</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="city8-tab" data-bs-toggle="tab" data-bs-target="#city8" type="button" role="tab"
+            aria-controls="city8" aria-selected="false">Город 8</button>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="city2" role="tabpanel" aria-labelledby="city2"> {% include "schedule/city-2.html" %} </div>
+    <div class="tab-pane fade" id="city3" role="tabpanel" aria-labelledby="city3"> {% include "schedule/city-3.html" %} </div>
+    <div class="tab-pane fade" id="city4" role="tabpanel" aria-labelledby="city4"> {% include "schedule/city-4.html" %} </div>
+    <div class="tab-pane fade" id="city8" role="tabpanel" aria-labelledby="city8"> {% include "schedule/city-8.html" %} </div>
+</div>
+
+
+
+<!-- <table class="schedule">
     <thead>
         <tr>
             <th colspan="3">Время отправления</th>
@@ -103,7 +131,7 @@
             <td>&nbsp;</td>
         </tr>
     <tbody>
-</table>
+</table> -->
 <!-- {% include "actual_schedule.html" %} -->
 
 {% endblock content %}

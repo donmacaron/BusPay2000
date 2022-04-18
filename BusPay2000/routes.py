@@ -32,7 +32,7 @@ def account_page():
 def schedule_page():
     title = 'BusPay2000 - Расписание'
     if current_user.is_authenticated:
-        return render_template('schedule.html', title=title)
+        return render_template('schedule.html', title=title, schedule_page=True)
     return redirect(url_for('main_page'))
 
 @app.route('/buy', methods=['GET', 'POST'])

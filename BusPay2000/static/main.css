@@ -334,7 +334,7 @@ th, td {
 }
 
 .schedule {
-    width:100%;
+    /* width:110%; */
     border:1px solid #000000;
     border-collapse:collapse;
     padding:5px;
@@ -346,13 +346,23 @@ th, td {
     /* background:#F0F0F0; */
 }
 .schedule td {
-    border-right:1px solid #000000;
+    border:1px solid #000000;
     text-align:center;
     padding:5px;
-    background:#F7F5D2;
+    /* background:#F7F5D2; */
 }
 
 .history-list {
     position:inherit;
     width: auto;
+}
+
+.content-schedule{
+    width: 80%;
+}
+@media screen and (max-width: 600px) {
+    .content-schedule {
+        width: 80%;
+        margin-left: 71px;
+}
 }
