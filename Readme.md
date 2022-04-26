@@ -13,10 +13,12 @@
 Запуск:
 1. Склонировать репозиторий себе
 2. Создать виртуальное окружение (для windows)
-    2.1. py -3 -m venv .venv
-    2.2. .venv\scripts\activate
-3. Установить зависимости "python -m pip install -r requriments.txt"
-4. Запуск "python run.py"
+2. python -m pip install virtualenv
+3. python -m veirtalenv venv
+4. venv\scripts\activate
+5. cd .\BusPay2000
+6. Установить зависимости "python -m pip install -r .\requriments.txt"
+7. Запуск "python run.py"
 
 Сброс БД:
 1. Python bd.py (Удаление существующей бд и создание новой)
